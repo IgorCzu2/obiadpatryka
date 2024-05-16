@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czy Patryk jest głodny?</title>
+</head>
+<body>
+    <h1>Czy Patryk jest głodny?</h1>
+    <form>
+        <label for="odpowiedz1">Czy Patryk jest głodny?</label>
+        <input type="text" id="odpowiedz1" name="odpowiedz1">
+        <button type="button" onclick="sprawdzOdpowiedz('odpowiedz1', 'wynik1')">Sprawdź</button>
+        <p id="wynik1"></p>
+    </form>
+
+    <h1>Czy Patryk Powienien Zjeść Obiad</h1>
+    <form>
+        <label for="odpowiedz2">Wpisz odpowiedź (TAK, NIE, NIE WIEM):</label>
+        <input type="text" id="odpowiedz2" name="odpowiedz2">
+        <button type="button" onclick="sprawdzOdpowiedz('odpowiedz2', 'wynik2')">Sprawdź</button>
+        <p id="wynik2"></p>
+    </form>
+
+    <script>
+        function sprawdzOdpowiedz(odpowiedzId, wynikId) {
+           
+            const odpowiedz = document.getElementById(odpowiedzId).value.toUpperCase();
+            const wynikElement = document.getElementById(wynikId);
+            let wynik;
+
+          
+            if (odpowiedzId === 'odpowiedz1') {
+                if (odpowiedz === 'TAK') {
+                    wynik = 'Tak, Patryk zjadłby kebeba';
+                } else if (odpowiedz === 'NIE') {
+                    wynik = 'Nie, Patryk jest na diecie';
+                } else {
+                    wynik = 'Proszę wpisać "TAK" lub "NIE".';
+                }
+            } else if (odpowiedzId === 'odpowiedz2') {
+                if (odpowiedz === 'TAK') {
+                    wynik = "Patryk powinien zjeść cały obiad złożony z dwóch posiłków!";
+                } else if (odpowiedz === 'NIE') {
+                    wynik = "Patryk nie powinien jeść całego obiadu, ale może zjeść tylko drugie danie.";
+                } else if (odpowiedz === 'NIE WIEM') {
+                    wynik = "Patryk nie wie czy powinien zjeść obiad, więc niech zje zupę.";
+                } else {
+                    wynik = "Niepoprawna odpowiedź. Proszę wpisać 'TAK', 'NIE' lub 'NIE WIEM'.";
+                }
+            }
+
+          
+            wynikElement.textContent = wynik;
+        }
+    </script>
+</body>
+</html>
